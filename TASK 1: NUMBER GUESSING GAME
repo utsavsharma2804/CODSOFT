@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+void Game(int minNumber, int maxNumber) {
+    
+    srand(time(nullptr));
+    int randomNumber = rand() % maxNumber + minNumber;
+    
+    int guess;
+    bool guessed = false;
+    
+    cout << "Guess a number between " << minNumber << " and " << maxNumber << "." << endl;
+    
+    while (!guessed) {
+        cout << "Enter your guess: ";
+        cin >> guess;
+               
+        if (guess < randomNumber) {
+            cout << "Too low please try again." << endl;
+        } else if (guess > randomNumber) {
+            cout << "Too high please try again." << endl;
+        } else {
+            guessed = true;
+            cout << "Congratulations! You guessed the correct  number correctly" << endl;
+        }
+    }
+}
+
+int main() {
+   
+    int num1 = 1;
+    int num2 = 100;
+    Game(num1, num2);
+    
+    return 0;
+}
